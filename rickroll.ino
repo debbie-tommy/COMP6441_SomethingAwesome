@@ -16,7 +16,7 @@ void loop()
   DigiKeyboard.delay(600);
 
   // Enters the rickroll link and presses enter
-  DigiKeyboard.print("https://www.youtube.com/watch?v=dQw4w9WgXcQ");
+  DigiKeyboard.print("https://www.youtube.com/watch?v=dQw4w9WgXcQ&ab_channel=RickAstley");
   DigiKeyboard.sendKeyStroke(KEY_ENTER);
 
   for (;;) {/* Stops the loop */}
